@@ -153,5 +153,48 @@ plt.show()                          # Display plot
   - Export plots to formats like PNG, PDF, SVG
 
 - Matplotlib integrates well with NumPy and pandas, making it a key tool for data
+science.
+
+
+## Python Dictionaries (Detailed Notes)
+
+- **Dictionaries** are unordered, mutable collections that store data as key-value pairs.
+- Created using curly braces `{}` or the `dict()` constructor:
+  ```python
+  my_dict = {'name': 'James', 'age': 25, 'is_student': True}
+  # Or
+  my_dict = dict(name='James', age=25, is_student=True)
+  ```
+
+### Key Features
+- **Keys** must be unique and immutable (e.g., strings, numbers, tuples).
+- **Values** can be of any data type.
+- Access values using keys:  
+  `my_dict['name']` returns `'James'`
+- Add or update entries:  
+  `my_dict['city'] = 'London'`
+- Remove entries:  
+  `del my_dict['age']` or `my_dict.pop('age')`
+
+### Common Operations
+- **Get all keys:** `my_dict.keys()`
+- **Get all values:** `my_dict.values()`
+- **Get all items (key-value pairs):** `my_dict.items()`
+- **Check if key exists:** `'name' in my_dict`
+- **Get value with default:** `my_dict.get('grade', 'N/A')`
+
+### Iteration
+```python
+for key, value in my_dict.items():
+    print(key, value)
+```
+
+### Use Cases in Data Science
+- Storing configuration settings.
+- Mapping categorical values to numbers.
+- Counting occurrences (using `collections.Counter`).
+- Grouping data by keys.
+
+Dictionaries are fundamental for organizing and accessing data efficiently in Python, and they play a crucial role in data science for tasks like data manipulation, configuration management, and implementing algorithms.
 
 
