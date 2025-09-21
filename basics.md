@@ -91,5 +91,67 @@ mean = np.mean(data)
 std_dev = np.std(data)
 filtered = data[data > 25]  # Filter values greater than 25
 ```
-
 NumPy is essential for efficient numerical computations and is widely used with pandas, scikit-learn, and other data science libraries.
+
+
+## Matplotlib (Detailed Notes)
+
+- **Matplotlib** is a comprehensive Python library for creating static, interactive, and animated visualizations.
+- Most commonly used module: `pyplot` (`import matplotlib.pyplot as plt`), which provides a simple interface for plotting.
+
+### Basic Plotting
+```python
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4]
+y = [10, 20, 25, 30]
+plt.plot(x, y, label='Line Plot')   # Create a line plot
+plt.xlabel('X-axis')                # Label x-axis
+plt.ylabel('Y-axis')                # Label y-axis
+plt.title('Simple Line Plot')       # Add a title
+plt.legend()                        # Show legend
+plt.grid(True)                      # Add grid
+plt.show()                          # Display plot
+```
+
+### Common Plot Types
+- **Line plot:** `plt.plot(x, y)` — visualize trends over time or ordered categories.
+- **Scatter plot:** `plt.scatter(x, y)` — show relationships or distributions between two variables.
+- **Bar plot:** `plt.bar(x, y)` — compare quantities across categories.
+- **Histogram:** `plt.hist(data, bins=10)` — display the distribution of numerical data.
+- **Pie chart:** `plt.pie(sizes, labels=labels)` — show proportions of categories.
+- **Box plot:** `plt.boxplot(data)` — visualize data spread and outliers.
+
+### Customization
+- **Colors, markers, line styles:**  
+  `plt.plot(x, y, color='red', marker='o', linestyle='--')`
+- **Legends:**  
+  `plt.legend(['Series 1'])`
+- **Grid:**  
+  `plt.grid(True)`
+- **Figure size:**  
+  `plt.figure(figsize=(8, 4))`
+- **Subplots:**  
+  ```python
+  plt.subplot(1, 2, 1)  # 1 row, 2 columns, 1st plot
+  plt.plot(x, y)
+  plt.subplot(1, 2, 2)  # 2nd plot
+  plt.bar(x, y)
+  plt.show()
+  ```
+
+### Data Science Applications
+- **Exploratory Data Analysis (EDA):**  
+  - Visualize distributions (histograms, boxplots)
+  - Detect trends and patterns (line plots, scatter plots)
+  - Compare categories (bar plots, pie charts)
+- **Model Evaluation:**  
+  - Plot predictions vs. actual values
+  - Visualize confusion matrices and ROC curves
+- **Publication-quality figures:**  
+  - Customize fonts, colors, and layouts for reports and presentations
+  - Export plots to formats like PNG, PDF, SVG
+
+- Matplotlib integrates well with NumPy and pandas, making it a key tool for data
+
+
