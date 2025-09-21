@@ -1,200 +1,237 @@
-Here are concise notes on each topic:
+---
 
-## Python Basics
-- Python is an interpreted, high-level, general-purpose programming language.
-- Variables store data: `x = 5`
-- Data types: `int`, `float`, `str`, `bool`
-- Basic operators: `+`, `-`, `*`, `/`, `%`
-- Control flow: `if`, `elif`, `else`, `for`, `while`
-- Indentation defines code blocks.
+# 📘 Python & Data Science Notes
 
-## Python Lists
-- Lists store ordered, mutable collections: `my_list = [1, 2, 3]`
-- Access elements: `my_list[0]`
-- Modify: `my_list.append(4)`, `my_list.remove(2)`
-- Slicing: `my_list[1:3]`
-- Lists can hold mixed data types.
+---
 
-## Functions and Packages
-- Functions: reusable blocks of code.
+## 1. Python Basics
+
+* **Definition:** Python is an interpreted, high-level, general-purpose programming language, known for readability and ease of use.
+* **Key Features:**
+
+  * Dynamically typed (no need to declare variable types explicitly).
+  * Interpreted (executed line by line).
+  * Supports multiple paradigms (procedural, object-oriented, functional).
+  * Large standard library and third-party ecosystem.
+
+### Variables & Data Types
+
+```python
+x = 5        # int
+pi = 3.14    # float
+name = "Ali" # str
+is_active = True # bool
+```
+
+* Other types: `list`, `tuple`, `dict`, `set`.
+* Type checking: `type(x)`
+
+### Operators
+
+* Arithmetic: `+`, `-`, `*`, `/`, `//` (floor), `%`, `**` (power).
+* Comparison: `==`, `!=`, `>`, `<`, `>=`, `<=`.
+* Logical: `and`, `or`, `not`.
+
+### Control Flow
+
+```python
+if x > 0:
+    print("Positive")
+elif x == 0:
+    print("Zero")
+else:
+    print("Negative")
+```
+
+### Loops
+
+```python
+for i in range(5):
+    print(i)
+
+while x > 0:
+    print(x)
+    x -= 1
+```
+
+### Indentation
+
+* Python uses **indentation (spaces or tabs)** instead of braces `{}` to define code blocks.
+
+---
+
+## 2. Python Lists
+
+* **Definition:** Ordered, mutable collections.
+* Can hold **heterogeneous data** (e.g., `[1, "hello", 3.5]`).
+
+### Basic Operations
+
+```python
+my_list = [1, 2, 3]
+print(my_list[0])       # Access
+my_list.append(4)       # Add
+my_list.remove(2)       # Remove
+my_list[1:3]            # Slicing
+```
+
+### Useful Methods
+
+* `len(my_list)` → length
+* `my_list.sort()` → sort in-place
+* `sorted(my_list)` → returns new sorted list
+* `my_list.reverse()` → reverse order
+* `my_list.index(3)` → get index of value
+* `my_list.count(2)` → count occurrences
+
+### Nested Lists
+
+```python
+matrix = [[1,2], [3,4]]
+print(matrix[0][1])  # Access 2
+```
+
+---
+
+## 3. Functions and Packages
+
+* **Functions:** Reusable blocks of code.
+
+```python
+def greet(name="User"):
+    return f"Hello, {name}"
+```
+
+* **Arguments:**
+
+  * Positional: `add(2,3)`
+  * Keyword: `greet(name="James")`
+  * Default: `name="User"`
+  * `*args` (variable arguments), `**kwargs` (keyword arguments).
+
+* **Lambda functions:**
+
+```python
+square = lambda x: x**2
+```
+
+* **Packages & Modules:**
+
+  * A **module** is a Python file with definitions (`.py`).
+  * A **package** is a collection of modules in a directory with `__init__.py`.
+  * Import:
+
     ```python
-    def add(a, b):
-        return a + b
-    ```
-- Call functions: `add(2, 3)`
-- Packages: collections of modules. Import with `import package_name`
-- Use functions from packages: `math.sqrt(4)`
-
-## NumPy
-- NumPy is a package for numerical computing.
-- Provides `ndarray` for efficient array operations.
-    ```python
+    import math
+    from math import sqrt
     import numpy as np
-    arr = np.array([1, 2, 3])
     ```
-- Supports vectorized operations: `arr * 2`
-- Useful functions: `np.mean(arr)`, `np.arange(0, 10, 2)`
-- Commonly used for data science and machine learning.
 
-Here are detailed notes on NumPy and its common operations in data science:
+---
 
-## NumPy Overview
-- NumPy (Numerical Python) is a core library for scientific computing in Python.
-- Provides the `ndarray` object for fast, memory-efficient array operations.
-- Supports mathematical, logical, and statistical operations on arrays.
+## 4. NumPy
 
-## Creating Arrays
+* **Purpose:** Fast numerical operations on large datasets.
+* **Core Object:** `ndarray` — multidimensional array with homogeneous elements.
+* Much faster than lists due to **vectorization** and memory efficiency.
+
+### Creating Arrays
+
 ```python
-import numpy as np
-
-# From a Python list
 arr = np.array([1, 2, 3])
-
-# Zeros, ones, random
-zeros = np.zeros((2, 3))
+zeros = np.zeros((2,3))
 ones = np.ones(5)
-rand = np.random.rand(3, 2)
-
-# Range and reshape
+rand = np.random.rand(3,2)
 arange = np.arange(0, 10, 2)
-reshaped = arange.reshape((5, 1))
+linspace = np.linspace(0, 1, 5)  # evenly spaced values
 ```
 
-## Array Operations
-- **Element-wise operations:** `arr * 2`, `arr + 5`
-- **Arithmetic:** `np.add(arr1, arr2)`, `np.subtract(arr1, arr2)`
-- **Aggregation:** `np.sum(arr)`, `np.mean(arr)`, `np.std(arr)`, `np.min(arr)`, `np.max(arr)`
-- **Matrix multiplication:** `np.dot(arr1, arr2)` or `arr1 @ arr2`
-- **Transposing:** `arr.T`
-- **Indexing and slicing:** `arr[0:3]`, `arr[:, 1]`
+### Operations
 
-## Useful Functions
-- **Sorting:** `np.sort(arr)`
-- **Unique values:** `np.unique(arr)`
-- **Concatenation:** `np.concatenate([arr1, arr2])`
-- **Stacking:** `np.vstack([arr1, arr2])`, `np.hstack([arr1, arr2])`
-- **Filtering:** `arr[arr > 5]`
+* Element-wise: `arr * 2`, `arr + 5`
+* Aggregation: `np.sum(arr)`, `np.mean(arr)`, `np.median(arr)`, `np.std(arr)`
+* Matrix multiplication: `np.dot(a, b)` or `a @ b`
+* Transpose: `arr.T`
+* Boolean indexing: `arr[arr > 5]`
 
-## Data Science Applications
-- **Data preprocessing:** Cleaning, normalizing, and transforming data.
-- **Statistical analysis:** Calculating mean, median, standard deviation, correlations.
-- **Linear algebra:** Matrix operations for machine learning algorithms.
-- **Handling missing data:** `np.isnan(arr)` to find NaNs, `np.nanmean(arr)` to ignore NaNs in calculations.
-- **Random sampling:** `np.random.choice(arr, size=5)`
+### Advanced
 
-## Example: Basic Data Analysis
-```python
-import numpy as np
+* Reshaping: `arr.reshape((3,2))`
+* Stacking: `np.vstack`, `np.hstack`
+* Broadcasting: allows operations on arrays of different shapes.
 
-data = np.array([10, 20, 30, 40, 50])
-mean = np.mean(data)
-std_dev = np.std(data)
-filtered = data[data > 25]  # Filter values greater than 25
-```
-NumPy is essential for efficient numerical computations and is widely used with pandas, scikit-learn, and other data science libraries.
+---
 
+## 5. Matplotlib
 
-## Matplotlib (Detailed Notes)
+* **Purpose:** Visualization library for Python.
+* Commonly used module: `matplotlib.pyplot`.
 
-- **Matplotlib** is a comprehensive Python library for creating static, interactive, and animated visualizations.
-- Most commonly used module: `pyplot` (`import matplotlib.pyplot as plt`), which provides a simple interface for plotting.
+### Basic Example
 
-### Basic Plotting
 ```python
 import matplotlib.pyplot as plt
 
-x = [1, 2, 3, 4]
-y = [10, 20, 25, 30]
-plt.plot(x, y, label='Line Plot')   # Create a line plot
-plt.xlabel('X-axis')                # Label x-axis
-plt.ylabel('Y-axis')                # Label y-axis
-plt.title('Simple Line Plot')       # Add a title
-plt.legend()                        # Show legend
-plt.grid(True)                      # Add grid
-plt.show()                          # Display plot
+x = [1,2,3,4]
+y = [10,20,25,30]
+
+plt.plot(x, y, 'o--r', label='Line')
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.title("Line Plot")
+plt.legend()
+plt.show()
 ```
 
 ### Common Plot Types
-- **Line plot:** `plt.plot(x, y)` — visualize trends over time or ordered categories.
-- **Scatter plot:** `plt.scatter(x, y)` — show relationships or distributions between two variables.
-- **Bar plot:** `plt.bar(x, y)` — compare quantities across categories.
-- **Histogram:** `plt.hist(data, bins=10)` — display the distribution of numerical data.
-- **Pie chart:** `plt.pie(sizes, labels=labels)` — show proportions of categories.
-- **Box plot:** `plt.boxplot(data)` — visualize data spread and outliers.
+
+* Line: `plt.plot(x,y)`
+* Scatter: `plt.scatter(x,y)`
+* Bar: `plt.bar(x,y)`
+* Histogram: `plt.hist(data, bins=10)`
+* Pie: `plt.pie(sizes, labels=labels)`
+* Box: `plt.boxplot(data)`
 
 ### Customization
-- **Colors, markers, line styles:**  
-  `plt.plot(x, y, color='red', marker='o', linestyle='--')`
-- **Legends:**  
-  `plt.legend(['Series 1'])`
-- **Grid:**  
-  `plt.grid(True)`
-- **Figure size:**  
-  `plt.figure(figsize=(8, 4))`
-- **Subplots:**  
-  ```python
-  plt.subplot(1, 2, 1)  # 1 row, 2 columns, 1st plot
-  plt.plot(x, y)
-  plt.subplot(1, 2, 2)  # 2nd plot
-  plt.bar(x, y)
-  plt.show()
-  ```
 
-### Data Science Applications
-- **Exploratory Data Analysis (EDA):**  
-  - Visualize distributions (histograms, boxplots)
-  - Detect trends and patterns (line plots, scatter plots)
-  - Compare categories (bar plots, pie charts)
-- **Model Evaluation:**  
-  - Plot predictions vs. actual values
-  - Visualize confusion matrices and ROC curves
-- **Publication-quality figures:**  
-  - Customize fonts, colors, and layouts for reports and presentations
-  - Export plots to formats like PNG, PDF, SVG
+* Colors: `"r"`, `"g"`, `"b"`, or hex codes.
+* Markers: `"o"`, `"s"`, `"^"`.
+* Subplots: `plt.subplot(rows, cols, index)`.
+* Figure size: `plt.figure(figsize=(8,4))`.
 
-- Matplotlib integrates well with NumPy and pandas, making it a key tool for data
-science.
+---
 
+## 6. Python Dictionaries
 
-## Python Dictionaries (Detailed Notes)
+* **Definition:** Unordered, mutable collections of key-value pairs.
+* Keys must be unique & immutable; values can be any type.
 
-- **Dictionaries** are unordered, mutable collections that store data as key-value pairs.
-- Created using curly braces `{}` or the `dict()` constructor:
-  ```python
-  my_dict = {'name': 'James', 'age': 25, 'is_student': True}
-  # Or
-  my_dict = dict(name='James', age=25, is_student=True)
-  ```
+### Example
 
-### Key Features
-- **Keys** must be unique and immutable (e.g., strings, numbers, tuples).
-- **Values** can be of any data type.
-- Access values using keys:  
-  `my_dict['name']` returns `'James'`
-- Add or update entries:  
-  `my_dict['city'] = 'London'`
-- Remove entries:  
-  `del my_dict['age']` or `my_dict.pop('age')`
-
-### Common Operations
-- **Get all keys:** `my_dict.keys()`
-- **Get all values:** `my_dict.values()`
-- **Get all items (key-value pairs):** `my_dict.items()`
-- **Check if key exists:** `'name' in my_dict`
-- **Get value with default:** `my_dict.get('grade', 'N/A')`
-
-### Iteration
 ```python
-for key, value in my_dict.items():
-    print(key, value)
+person = {"name": "James", "age": 25, "is_student": True}
+print(person["name"])
+person["city"] = "Kampala"
 ```
 
-### Use Cases in Data Science
-- Storing configuration settings.
-- Mapping categorical values to numbers.
-- Counting occurrences (using `collections.Counter`).
-- Grouping data by keys.
+### Operations
 
-Dictionaries are fundamental for organizing and accessing data efficiently in Python, and they play a crucial role in data science for tasks like data manipulation, configuration management, and implementing algorithms.
+* Access: `person.get("grade", "N/A")`
+* Delete: `del person["age"]` or `person.pop("age")`
+* Keys/Values: `person.keys()`, `person.values()`
+* Iteration:
 
+  ```python
+  for key, value in person.items():
+      print(key, value)
+  ```
+
+### Applications
+
+* Data mapping (e.g., `{ "M": 1, "F": 0 }`).
+* Counting with `collections.Counter`.
+* JSON-like data structures.
+* Configurations and settings storage.
+
+---
 
