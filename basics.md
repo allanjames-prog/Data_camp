@@ -372,3 +372,28 @@ print(x != y)     # True
 
 * Commonly used in conditional statements (`if`, `elif`, `while`) to control
 
+---
+
+## Boolean Operators in Python
+
+* **Boolean operators** are used to combine or invert Boolean values (`True` or `False`).
+
+| Operator | Description         | Example             | Result      |
+|----------|--------------------|---------------------|-------------|
+| `and`    | Logical AND        | `True and False`    | `False`     |
+| `or`     | Logical OR         | `True or False`     | `True`      |
+| `not`    | Logical NOT        | `not True`          | `False`     |
+
+### Usage Example
+
+```python
+x = 5
+y = 10
+
+print(x > 0 and y > 0)    # True (both conditions are True)
+print(x > 0 or y < 0)     # True (at least one condition is True)
+print(not(x == y))        # True (x is not equal to y)
+```
+
+* Boolean operators are commonly used in conditional statements to combine
+
