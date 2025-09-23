@@ -160,6 +160,24 @@ linspace = np.linspace(0, 1, 5)  # evenly spaced values
 * Stacking: `np.vstack`, `np.hstack`
 * Broadcasting: allows operations on arrays of different shapes.
 
+### Handling Missing Data
+
+* Use `np.nan` to represent missing values.
+* Check for missing values: `np.isnan(arr)`
+* Ignore missing values in calculations: `np.nanmean(arr)`, `np.nanstd(arr)`
+
+### Random Sampling
+
+* Generate random samples: `np.random.choice(arr, size=5)`
+* Random numbers: `np.random.randn(100)`
+
+### Dictionary Comprehensions
+
+* Create dictionaries using comprehensions:
+  ```python
+  squares = {x: x**2 for x in range(5)}
+  ```
+
 ---
 
 ## 5. Matplotlib
@@ -197,7 +215,19 @@ plt.show()
 * Colors: `"r"`, `"g"`, `"b"`, or hex codes.
 * Markers: `"o"`, `"s"`, `"^"`.
 * Subplots: `plt.subplot(rows, cols, index)`.
-* Figure size: `plt.figure(figsize=(8,4))`.
+* Figure size: `plt.figure(figsize=(8,4))`
+* Add grid: `plt.grid(True)`
+* Save figure: `plt.savefig('plot.png')`
+
+### Integration with pandas
+
+* Plot directly from DataFrames: `df.plot()`
+
+### Applications in Data Science
+
+* Exploratory Data Analysis (EDA): visualize distributions, trends, and relationships.
+* Model evaluation: plot predictions vs. actual values, confusion matrices, ROC curves.
+* Publication-quality figures: customize fonts, colors, and layouts; export to PNG, PDF, SVG.
 
 ---
 
@@ -226,12 +256,93 @@ person["city"] = "Kampala"
       print(key, value)
   ```
 
+### Dictionary Comprehensions
+
+* Create new dictionaries from iterables:
+  ```python
+  squares = {x: x**2 for x in range(5)}
+  ```
+
 ### Applications
 
 * Data mapping (e.g., `{ "M": 1, "F": 0 }`).
 * Counting with `collections.Counter`.
 * JSON-like data structures.
 * Configurations and settings storage.
+
+---
+
+## 7. Pandas
+
+* **Pandas** is a powerful Python library for data manipulation and analysis.
+* Provides two main data structures:
+  - **Series:** 1-dimensional labeled array.
+  - **DataFrame:** 2-dimensional labeled table (rows and columns).
+
+### Creating Data Structures
+
+```python
+import pandas as pd
+
+# Series
+s = pd.Series([10, 20, 30], index=['a', 'b', 'c'])
+
+# DataFrame from dictionary
+df = pd.DataFrame({
+    'Name': ['Ali', 'James', 'Sara'],
+    'Age': [25, 30, 22]
+})
+```
+
+### Reading and Writing Data
+
+* Read CSV: `pd.read_csv('data.csv')`
+* Read Excel: `pd.read_excel('data.xlsx')`
+* Write CSV: `df.to_csv('output.csv', index=False)`
+
+### DataFrame Operations
+
+* View data: `df.head()`, `df.tail()`
+* Info: `df.info()`, `df.describe()`
+* Select column: `df['Name']`
+* Select row by label: `df.loc[0]`
+* Select row by index: `df.iloc[0]`
+* Filter rows: `df[df['Age'] > 25]`
+* Add column: `df['Score'] = [90, 85, 88]`
+* Drop column: `df.drop('Score', axis=1)`
+
+### Handling Missing Data
+
+* Detect missing: `df.isnull()`
+* Drop missing: `df.dropna()`
+* Fill missing: `df.fillna(0)`
+
+### Grouping and Aggregation
+
+* Group by column: `df.groupby('Name').mean()`
+* Aggregate: `df.agg({'Age': ['mean', 'max']})`
+
+### Merging and Joining
+
+* Merge DataFrames: `pd.merge(df1, df2, on='key')`
+* Concatenate: `pd.concat([df1, df2], axis=0)`
+
+### Pivot Tables
+
+* Create pivot tables: `df.pivot_table(values='Sales', index='Date', columns='Region')`
+
+### Time Series
+
+* Convert to datetime: `pd.to_datetime(df['date_column'])`
+* Set index: `df.set_index('date_column')`
+* Resample: `df.resample('M').sum()`
+
+### Applications
+
+* Data cleaning and preparation.
+* Exploratory data analysis (EDA).
+* Feature engineering for machine learning.
+* Data visualization integration.
 
 ---
 
