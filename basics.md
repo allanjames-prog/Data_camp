@@ -442,3 +442,68 @@ while error > 0.01:
 * Be careful to update the condition inside the loop to avoid infinite loops.
 * While loops are less common than `for` loops in data science, but are essential for tasks that require repeated checking or updating until a condition is met.
 
+## For Loops in Data Science
+
+* **For loops** are used to iterate over sequences (lists, arrays, DataFrame rows, etc.).
+* Essential for processing datasets, applying transformations, aggregating results, and tracking element positions.
+
+### Syntax
+
+```python
+for item in sequence:
+    # code block
+```
+
+### Example: Iterating Over a List
+
+```python
+data = [5, 7, 3]
+for value in data:
+    print(value)
+# Output: 5 7 3
+```
+
+### Example: Applying a Transformation
+
+```python
+squared = []
+for value in data:
+    squared.append(value ** 2)
+print(squared)  # Output: [25, 49, 9]
+```
+
+### Example: Iterating Over a pandas DataFrame
+
+```python
+import pandas as pd
+df = pd.DataFrame({'Age': [25, 30, 22]})
+for index, row in df.iterrows():
+    print(row['Age'])
+# Output: 25 30 22
+```
+
+### Example: Printing Index and Value with enumerate
+
+```python
+data = [5, 7, 3]
+for index, value in enumerate(data):
+    print(f"Index: {index}, Value: {value}")
+# Output:
+# Index: 0, Value: 5
+# Index: 1, Value: 7
+# Index: 2, Value: 3
+```
+
+### Example: List Comprehension (Concise Alternative)
+
+```python
+squared = [value ** 2 for value in data]
+print(squared)  # Output: [25, 49, 9]
+```
+
+### Notes
+
+* For loops are commonly used for feature engineering, data cleaning, and aggregating statistics.
+* `enumerate()` is useful for accessing both index and value, which helps in tracking positions or updating elements.
+* List comprehensions can often replace for loops for more concise code.
+
