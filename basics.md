@@ -346,3 +346,29 @@ df = pd.DataFrame({
 
 ---
 
+## Comparison Operators in Python
+
+* **Comparison operators** are used to compare values and return a Boolean result (`True` or `False`).
+
+| Operator | Description           | Example         | Result      |
+|----------|----------------------|-----------------|-------------|
+| `==`     | Equal to             | `5 == 5`        | `True`      |
+| `!=`     | Not equal to         | `5 != 3`        | `True`      |
+| `>`      | Greater than         | `7 > 2`         | `True`      |
+| `<`      | Less than            | `3 < 8`         | `True`      |
+| `>=`     | Greater than or equal| `6 >= 6`        | `True`      |
+| `<=`     | Less than or equal   | `4 <= 5`        | `True`      |
+
+### Usage Example
+
+```python
+x = 10
+y = 5
+
+print(x > y)      # True
+print(x == y)     # False
+print(x != y)     # True
+```
+
+* Commonly used in conditional statements (`if`, `elif`, `while`) to control
+
