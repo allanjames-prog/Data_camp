@@ -576,3 +576,32 @@ sum_arr = arr + np.array([10, 20, 30, 40])  # Element-wise addition
 
 ---
 
+### Looping Over a pandas DataFrame
+
+* You can iterate over DataFrame rows to process or analyze data row by row.
+* Common methods: `.iterrows()`, `.itertuples()`
+
+#### Using `.iterrows()`
+
+```python
+import pandas as pd
+df = pd.DataFrame({'Name': ['Ali', 'James', 'Sara'], 'Age': [25, 30, 22]})
+
+for index, row in df.iterrows():
+    print(f"Index: {index}, Name: {row['Name']}, Age: {row['Age']}")
+# Output:
+# Index: 0, Name: Ali, Age: 25
+# Index: 1, Name: James, Age: 30
+# Index: 2, Name: Sara, Age: 22
+```
+
+#### Using `.itertuples()` (more efficient)
+
+```python
+for row in df.itertuples():
+    print(f"Index: {row.Index}, Name: {row.Name}, Age: {row.Age}")
+```
+
+* Iterating is useful for custom calculations, feature engineering, or exporting data.
+* For large datasets, prefer vectorized operations for better performance.
+
