@@ -507,3 +507,72 @@ print(squared)  # Output: [25, 49, 9]
 * `enumerate()` is useful for accessing both index and value, which helps in tracking positions or updating elements.
 * List comprehensions can often replace for loops for more concise code.
 
+---
+
+## Iterating Over Dictionaries with `.items()`
+
+* Use `.items()` to loop through key-value pairs in a dictionary.
+* Useful for mapping, encoding, and summarizing categorical data in data science.
+
+```python
+person = {"name": "James", "age": 25, "city": "Kampala"}
+for key, value in person.items():
+    print(f"{key}: {value}")
+# Output:
+# name: James
+# age: 25
+# city: Kampala
+```
+
+---
+
+## NumPy Arrays: Handling Multi-Dimensional Data
+
+* NumPy arrays (`ndarray`) can be 1D, 2D, or higher dimensions (matrices, tensors).
+* Used for storing and manipulating large datasets, images, time series, etc.
+
+```python
+import numpy as np
+
+arr_2d = np.array([[1, 2, 3], [4, 5, 6]])
+print(arr_2d.shape)  # Output: (2, 3)
+print(arr_2d[0, 1])  # Access element at row 0, column 1 (Output: 2)
+```
+
+* Slicing and indexing:
+  ```python
+  print(arr_2d[:, 1])  # All rows, column 1
+  print(arr_2d[1, :])  # Row 1, all columns
+  ```
+
+---
+
+## Vectorized Operations in NumPy
+
+* **Vectorization** means applying operations to entire arrays, not element by element.
+* Replaces explicit loops, making code faster and more readable.
+
+```python
+arr = np.array([1, 2, 3, 4])
+result = arr * 2           # Multiplies every element by 2
+sum_arr = arr + np.array([10, 20, 30, 40])  # Element-wise addition
+```
+
+* Aggregations:
+  ```python
+  mean = np.mean(arr)      # Mean of all elements
+  std = np.std(arr)        # Standard deviation
+  ```
+
+* Boolean indexing:
+  ```python
+  filtered = arr[arr > 2]  # Select elements greater than 2
+  ```
+
+* **Benefits for Data Science:**  
+  - Faster computations on large datasets.
+  - Cleaner, more concise code.
+  - Essential for machine learning, statistics, and data preprocessing.
+
+---
+
