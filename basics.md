@@ -605,3 +605,77 @@ for row in df.itertuples():
 * Iterating is useful for custom calculations, feature engineering, or exporting data.
 * For large datasets, prefer vectorized operations for better performance.
 
+---
+
+## Random Numbers in Python for Data Science
+
+Random numbers are widely used in data science for tasks such as sampling, simulation, shuffling data, initializing model parameters, and creating synthetic datasets.
+
+### Why Use Random Numbers?
+
+- **Splitting datasets:** Randomly divide data into training and testing sets.
+- **Sampling:** Select random samples for experiments, bootstrapping, or cross-validation.
+- **Simulation:** Generate synthetic data to test algorithms or models.
+- **Machine learning:** Initialize weights and parameters randomly for algorithms.
+
+### Generating Random Numbers with NumPy
+
+```python
+import numpy as np
+
+# Random floats between 0 and 1
+random_floats = np.random.rand(5)  # 1D array of 5 random floats
+
+# Random integers in a range
+random_ints = np.random.randint(10, 21, size=5)  # 5 integers from 10 to 20
+
+# Random sample from an array (without replacement)
+arr = np.arange(100)
+sample = np.random.choice(arr, size=10, replace=False)
+
+# Random numbers from a normal distribution (mean=0, std=1)
+normal_data = np.random.randn(100)
+```
+
+### Setting a Seed for Reproducibility
+
+A **seed** is a fixed starting point for the random number generator. Setting a seed ensures that random numbers are the same every time you run your code, which is crucial for reproducible experiments and sharing results.
+
+```python
+np.random.seed(42)
+print(np.random.rand(3))  # Will always print the same numbers for seed 42
+```
+
+### Random Numbers with Python's `random` Module
+
+```python
+import random
+
+# Random float between 0 and 1
+print(random.random())
+
+# Random integer between 1 and 10
+print(random.randint(1, 10))
+
+# Shuffle a list
+data = [1, 2, 3, 4, 5]
+random.shuffle(data)
+print(data)
+```
+
+### Applications in Data Science
+
+- **Data splitting:** `train_test_split` in scikit-learn uses random numbers to shuffle and split data.
+- **Bootstrapping:** Randomly resample data to estimate statistics.
+- **Monte Carlo simulations:** Use random numbers to model uncertainty and variability.
+- **Synthetic data generation:** Create random datasets for testing and validation.
+
+### Best Practices
+
+- Always set a seed (`np.random.seed()`) when you need reproducible results.
+- Use NumPy for large-scale random number generation and array operations.
+- Use Python's `random` module for simple tasks with lists and small datasets.
+
+---
+
+
