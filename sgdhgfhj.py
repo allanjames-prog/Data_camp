@@ -5,3 +5,8 @@ for key, value in person.items():
 # name: James
 # age: 25
 # city: Kampal
+
+i = 1
+         i <= 3:
+    i += 1
+    print(i)
